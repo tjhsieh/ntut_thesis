@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{Parker:2013}
+Steven~G. Parker, Heiko Friedrich, David Luebke, Keith Morley, James Bigler,
+  Jared Hoberock, David McAllister, Austin Robison, Andreas Dietrich, Greg
+  Humphreys, Morgan McGuire, and Martin Stich.
+\newblock Gpu ray tracing.
+\newblock {\em Commun. ACM}, 56(5):93--101, May 2013.
+
+\bibitem{Hsiao:2018}
+Kai-Wen Hsiao, Jia-Bin Huang, and Hung-Kuo Chu.
+\newblock Multi-view wire art.
+\newblock {\em ACM Trans. Graph.}, 37(6):242:1--242:11, December 2018.
+
+\end{thebibliography}

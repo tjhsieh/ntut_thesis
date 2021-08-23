@@ -1,0 +1,98 @@
+\chapter{導論}
+\label{c:1}
+
+%==========================================================================================
+\section{第一階層子標題}
+
+各階層子標題均應置於左側，並於其下方不空行。
+
+本規範為一般性規範，各所得依其學術領域之慣用格式，訂定相關規範。本規範為一般性規範，各所得依其學術領域之慣用格式，訂定相關規範。本規範為一般性規範，各所得依其學術領域之慣用格式，訂定相關規範。本規範為一般性規範，各所得依其學術領域之慣用格式，訂定相關規範。本規範為一般性規範，各所得依其學術領域之慣用格式，訂定相關規範。本規範為一般性規範，各所得依其學術領域之慣用格式，訂定相關規範。本規範為一般性規範，各所得依其學術領域之慣用格式，訂定相關規範。本規範為一般性規範，各所得依其學術領域之慣用格式，訂定相關規範。本規範為一般性規範，各所得依其學術領域之慣用格式，訂定相關規範。本規範為一般性規範，各所得依其學術領域之慣用格式，訂定相關規範。本規範為一般性規範，各所得依其學術領域之慣用格式，訂定相關規範。本規範為一般性規範，各所得依其學術領域之慣用格式，訂定相關規範。本規範為一般性規範，各所得依其學術領域之慣用格式，訂定相關規範。
+
+%==========================================================================================
+\subsection{第二階層子標題}
+
+第二階層子標題之內文。
+
+%==========================================================================================
+\subsubsection{第三階層子標題}
+
+第三階層子標題之內文。
+
+
+
+%==========================================================================================
+\section{Figure}
+\label{ss:Figure}
+\begin{figure}[htpb!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{fig/tiger.jpeg}
+    \caption{\label{fig:tiger}A picture of a tiger.}
+\end{figure}
+
+Figure~\ref{fig:tiger} is a picture of a tiger.
+
+
+
+%==========================================================================================
+\section{Table}
+\label{ss:Table}
+
+\href{http://en.wikibooks.org/wiki/LaTeX/Tables}{Table examples on WIKIBOOKS}.
+
+\begin{table}[htpb]\begin{center}
+\caption{Table Example 1}
+\begin{tabularx}{8cm}{llX}
+\hline
+Start & End  & Character Block Name \\
+\hline
+3400  & 4DB5 & CJK Unified Ideographs Extension A \\
+4E00  & 9FFF & CJK Unified Ideographs \\
+\hline
+\end{tabularx}
+ \end{center}\end{table}
+
+\begin{table}[htpb]\begin{center}
+\caption{Table Example 2}
+\begin{tabular}{llr}
+\hline
+\multicolumn{2}{c}{Item} \\
+\cline{1-2}
+Animal & Description & Price (\$) \\
+\hline
+Gnat  & per gram & 13.65 \\
+      & each     &  0.01 \\
+Gnu   & stuffed  & 92.50 \\
+Emu   & stuffed  & 33.33 \\
+Armadillo & frozen & 8.99 \\
+\hline
+\end{tabular}
+ \end{center}\end{table}
+
+ \begin{table}[htpb]\begin{center}
+	\label{t:prefix-table}
+	\caption{Table Example 3}
+	\renewcommand{\arraystretch}{1.0}
+	\begin{tabularx}{300pt}{|c|X| }
+		\hline
+		\multirow{1}{*}{\textbf{Allocation}} &
+		Allocation, Element, Type, Script
+		\\ \hline\hline
+		%------------------------------
+		\multirow{6}{*}{\textbf{Data Types}} &
+        Byte2, Byte3, and Byte4\\ &
+        Float2, Float3, Float4\\ &
+        Int2, Int3, Int4\\ &
+        Long2, Long3, Long4\\ &
+        Matrix2f, Matrix3f, Matrix4f\\ &
+        Short2, Short3, Short4
+        \\ \hline\hline
+		%------------------------------
+		\multirow{4}{*}{\textbf{Graphics}} &
+		Mesh\\&
+		ProgramFragment, ProgramRaster\\&
+		ProgramStore, ProgramVertex\\&
+		RSSurfaceView
+		\\ \hline
+		%------------------------------
+	\end{tabularx}
+\end{center}\end{table}

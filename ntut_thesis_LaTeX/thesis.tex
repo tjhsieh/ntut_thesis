@@ -1,0 +1,231 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[a4paper, 12pt, oneside]{book}
+
+\usepackage{cite}
+%\usepackage{chapterbib}
+%The chapterbib package facilitates multiple bibliographies in a LATEX document
+\usepackage[hyphens]{url}
+%Verbatim with URL-sensitive line breaks.
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,filecolor=blue,urlcolor=blue,unicode]{hyperref}
+%The hyperref package is used to handle cross-referencing commands in LaTeX to produce hypertext links in the document. The package provides backends for the \special set defined for HyperTeX DVI processors; for embedded pdfmark commands for processing by Acrobat Distiller (dvips and Y&Y’s dvipsone); for Y&Y’s dviwindo; for PDF control within pdfTeX and dvipdfm; for TeX4ht; and for VTeX’s pdf and HTML backends.
+\usepackage{verbatim}
+%The verbatim environment  simply reproduces every character you input, including all  s p a c e s!
+\usepackage{color}
+%you can set the color of the font of the text, and set the background color of the page.
+\usepackage[dvipsnames]{xcolor}
+%xecolor package is a simple package which defines about 140 different colors by XeTeX's font
+\usepackage{graphicx}
+%Standard LaTeX graphics.
+\usepackage{array}
+%The array environment is used to make a table of information, with column alignment (left, center, or right) and optional vertical lines separating the columns.
+\usepackage{gensymb}
+%Provides generic commands \degree, \celsius, \perthousand, \micro and \ohm which work both in text and maths mode.
+\usepackage{indentfirst}
+%Make the first line of all sections etc., be indented by the usual paragraph indentation. This should work with all the standard document classes. This minimalist package is part of the "tools" bundle in the LaTeX required distribution.
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+%A suite of tools for typesetting algorithms in pseudo-code. The algorithmicx package provides many possibilities to customize the layout of algorithms. You can use one of the predefined layouts (pseudocode, pascal and c and others), with or without modifications, or you can define a completely new layout for your specific needs.
+\usepackage{enumitem}
+%Control layout of itemize, enumerate, description.  It supersedes both enumerate and mdwlist (providing well- structured replacements for all their funtionality), and in addition provides functions to compute the layout of labels, and to 'clone' the standard environments, to create new environments with counters of their own.
+\usepackage{mfirstuc}
+%\makefirstuc{〈stuff 〉} This makes the first object of 〈stuff 〉 uppercase unless 〈stuff 〉 starts with a con- trol sequence followed by a non-empty group, in which case the first object in the group is converted to uppercase.
+\usepackage{fancyvrb}
+%This package provides very sophisticated facilities for reading and writing ver- batim TEX code.
+\usepackage{amsfonts}
+%TeX fonts from the American Mathematical Society.
+\usepackage{ifmtarg}
+%If-then-else command for processing potentially empty arguments.
+\usepackage{amsmath}
+%The amsmath package is a LATEX package that provides miscellaneous enhance- ments for improving the information structure and printed output of documents that contain mathematical formulas.
+\usepackage{amssymb}
+% Math symbols
+\usepackage[mathcal]{euscript}
+%This file sets up some font shape definitions to use the Euler script symbols in math mode.
+\usepackage[notbib]{tocbibind}
+%Add (or disable) bibliography/index/contents to Table of Contents.
+\usepackage{rotating}
+%Rotation tools, including rotated full-page floats.
+\usepackage{hhline}
+%The command \hhline produces a line like \hline, or a double line like \hline\hline, except for its interaction with vertical lines. The command takes a preamble (rather like the preamble of a tabular environment), and this specifies whether there are to be one or two horizontal lines, and what happens when the horizontal line meets a vertical one. The package is part of the tools bundle in the LaTeX required distribution.
+\usepackage{wallpaper}
+%Easy addition of wallpapers (background images) to LaTeX documents, including tiling.
+\usepackage{pdfpages}
+%Include PDF documents in LaTeX.
+\usepackage{pst-fractal,pst-exa}
+% The package will draw the Julia and Mandelbrot sets, the Sierpinski triangle, Koch flake, and Apollonius Circle as well as fractal trees (which need not be balanced) with a variety of different parameters (including varying numbers of iterations).
+
+\usepackage{afterpage} % ntut
+% http://tex.stackexchange.com/questions/36880/insert-a-blank-page-after-current-page
+
+
+%Define \XeTeX \XeLaTeX command
+\def\reflect#1{{\setbox0=\hbox{#1}\rlap{\kern0.5\wd0
+ \special{x:gsave}\special{x:scale -1 1}}\box0 \special{x:grestore}}}
+\def\XeLaTeX{\leavevmode
+ \setbox0=\hbox{X\lower.5ex\hbox{\kern-.15em\reflect{E}}\kern-.08em\LaTeX}%
+ \dp0=0pt\ht0=0pt\box0}
+ \def\XeTeX{\leavevmode
+ \setbox0=\hbox{X\lower.5ex\hbox{\kern-.15em\reflect{E}}\kern-.08em\TeX}%
+ \dp0=0pt\ht0=0pt\box0}
+
+% \usepackage[none]{hyphenat}  %hyphenation package
+
+% Start Declare physics symbols
+\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}}
+\newcommand{\grad}[1]{\gv{\nabla} #1} % for gradient
+\let\divsymb=\div % rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\gv{\nabla} \cdot #1} % for divergence
+\newcommand{\curl}[1]{\gv{\nabla} \times #1} % for curl
+\let\baraccent=\= % rename builtin command \= to \baraccent
+\renewcommand{\=}[1]{\stackrel{#1}{=}} % for putting numbers above =
+%end Declare
+
+\usepackage{tabularx}
+%tabularx, is defined, which takes the same arguments as tabular*, but modifies the widths of certain columns, rather than the inter column space, to set a table with the requested total width. The columns that may stretch are marked with the new token X in the preamble argument. This package requires the array package. The package is part of the tools bundle in the LaTeX required distribution.
+\usepackage{lmodern}
+%The Latin Modern family of fonts consists of 72 text fonts and 20 mathematics fonts, and is based on the Computer Modern fonts released into public domain by AMS (copyright © 1997 AMS).
+\font\lmr="[lmroman10-regular]"
+
+\usepackage{listings}
+%Typeset source code listings using LaTeX.
+\usepackage{textcomp}
+%provide many text symbols (such as baht, bullet, copyright, musicalnote, onequarter, section, and yen)
+
+\usepackage{amsthm}
+%The package facilitates the kind of theorem setup typically needed in American Mathematical Society publications. The package offers the theorem setup of the AMS document classes (amsart, amsbook, etc.) encapsulated in LaTeX package form so that it can be used with other document classes. Amsthm is part of the (required) AMS-LaTeX distribution, so should be present in any LaTeX distribution.
+\newtheorem{mydef-no-caption}{Definition}
+\newenvironment{mydef}[1][]%
+	{\begin{mydef-no-caption}{\ifnotmtarg{#1}{\textnormal{(\textbf{#1})}~}}}%
+	{\end{mydef-no-caption}}
+
+\usepackage{numprint}
+%Print numbers with separators and exponent if necessary.
+\npthousandsep{,}
+\npthousandthpartsep{}
+\npdecimalsign{.}
+
+\usepackage{multirow}
+%Create tabular cells spanning multiple rows.
+
+\usepackage{ntut} %ntut
+%NTUT thesis style file
+\hypersetup{
+	pdfauthor={\authorEN{}},
+	pdftitle={\titleEN{}},
+	pdfsubject={NTUT Thesis} % ntut
+}
+
+\usepackage{setspace}
+%Set space between lines.
+
+\usepackage[absolute]{textpos}
+%Place boxes at arbitrary positions on the LaTeX page.
+\lstdefinestyle{nonumbers}{numbers=none}
+\textblockorigin{0mm}{0mm}
+
+\setcounter{tocdepth}{2}
+
+\pagestyle{plain}
+
+
+
+
+% ntut
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{CJKnumb}
+%\titleformat{\chapter}{\centering\Huge\bfseries}{第\,\CJKnumber{\thechapter}\,章}{1em} {}
+%\titleformat{\chapter}{\centering\huge\bfseries}{第\,\CJKnumber{\thechapter}\,章}{1em} {}
+\titleformat{\chapter}{\centering\LARGE\bfseries}{第\,\CJKnumber{\thechapter}\,章}{1em} {}
+%\titleformat{\chapter}{\centering\large\bfseries}{第\,\CJKnumber{\thechapter}\,章}{1em} {}
+
+
+
+
+\begin{document}
+
+%----------- hyphenation  -----------
+%\righthyphenmin=10  % Best hyphenation parameter
+
+%----------- watermark -----------
+%\CenterWallPaper{0.174}{fig/logo.png}
+\CenterWallPaper{0.25}{fig/logo_bg.png}
+%\setlength{\wpXoffset}{6.1725cm}  % 控制出現在頁面的位置
+%\setlength{\wpYoffset}{10.5225cm} % 控制出現在頁面的位置
+
+%----------- side page, used for printing on spline -----------
+\makeside
+
+%----------- cover page -----------
+\maketitle
+
+\frontmatter
+%----------- generate the certification page by LaTeX -----------
+%\makecertification
+%----------- includepdf by using package pdfpages -----------
+\addcontentsline{toc}{chapter}{口試委員會審定書}
+\includepdf{pdf/bb(18).pdf} % 轉檔案成 pdf
+\includepdf{pdf/bb(19).pdf} % 轉檔案成 pdf
+
+%\singlespacing
+%\onehalfspacing
+\doublespacing
+\input{01abstractCH}
+\input{02abstractEN}
+\input{03acknowledgementsCH}
+
+\singlespacing
+\tableofcontents
+
+\onehalfspacing
+\listoffigures
+\listoftables
+
+\mainmatter
+
+\doublespacing
+
+%----------- Include/Input your thesis here -----------
+%normal cite == \input
+
+\input{10chap01introduction}
+\input{20chap02relatedwork}
+\input{30chap03methodology}
+\input{40chap04results}
+\input{50chap05conclusions}
+
+
+
+%chapter cite  == \include
+
+%\include{start}
+%\include{introduction}
+%\include{THM}
+%\include{EXP}
+
+
+%\appendix
+%----------- Input your appendix here  -----------
+\input{AppendixA}
+\input{AppendixB}
+%or %chapter cite  == \include
+%\include{AppendixA}
+%\include{AppendixB}
+
+\input{Symbols}
+
+\backmatter
+
+
+%---------- Input your reference here ---------
+\bibliographystyle{unsrt}
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{thesis}
+
+%----------- Input your Figure chapter here  -----------
+%\input{EndFigTab}
+%chapter cite  == \include
+%\include{EndFigTab}
+
+\end{document}
