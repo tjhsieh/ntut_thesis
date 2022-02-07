@@ -1,0 +1,182 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[a4paper, 12pt, oneside]{book}
+
+\usepackage{cite}
+\usepackage[hyphens]{url}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,filecolor=blue,urlcolor=blue,unicode]{hyperref}
+\usepackage{verbatim}
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{gensymb}
+\usepackage{indentfirst}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mfirstuc}
+\usepackage{fancyvrb}
+\usepackage{amsfonts}
+\usepackage{ifmtarg}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[mathcal]{euscript}
+\usepackage[notbib]{tocbibind}
+\usepackage{rotating}
+\usepackage{hhline}
+\usepackage{wallpaper}
+\usepackage{pdfpages}
+\usepackage{pst-fractal,pst-exa}
+\usepackage{afterpage} % ntut
+\usepackage{subfigure} % ntut
+
+
+%Define \XeTeX \XeLaTeX command
+\def\reflect#1{{\setbox0=\hbox{#1}\rlap{\kern0.5\wd0
+ \special{x:gsave}\special{x:scale -1 1}}\box0 \special{x:grestore}}}
+\def\XeLaTeX{\leavevmode
+ \setbox0=\hbox{X\lower.5ex\hbox{\kern-.15em\reflect{E}}\kern-.08em\LaTeX}%
+ \dp0=0pt\ht0=0pt\box0}
+ \def\XeTeX{\leavevmode
+ \setbox0=\hbox{X\lower.5ex\hbox{\kern-.15em\reflect{E}}\kern-.08em\TeX}%
+ \dp0=0pt\ht0=0pt\box0}
+
+% \usepackage[none]{hyphenat}  %hyphenation package
+
+% Start Declare physics symbols
+\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}}
+\newcommand{\grad}[1]{\gv{\nabla} #1} % for gradient
+\let\divsymb=\div % rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\gv{\nabla} \cdot #1} % for divergence
+\newcommand{\curl}[1]{\gv{\nabla} \times #1} % for curl
+\let\baraccent=\= % rename builtin command \= to \baraccent
+\renewcommand{\=}[1]{\stackrel{#1}{=}} % for putting numbers above =
+%end Declare
+
+\usepackage{tabularx}
+\usepackage{lmodern}
+\font\lmr="[lmroman10-regular]"
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{amsthm}
+\newtheorem{mydef-no-caption}{Definition}
+\newenvironment{mydef}[1][]%
+	{\begin{mydef-no-caption}{\ifnotmtarg{#1}{\textnormal{(\textbf{#1})}~}}}%
+	{\end{mydef-no-caption}}
+\usepackage{numprint}
+\npthousandsep{,}
+\npthousandthpartsep{}
+\npdecimalsign{.}
+\usepackage{multirow}
+\usepackage{ntut} % ntut, TaipeiTech thesis style file
+\hypersetup{
+	pdfauthor={\authorEN{}},
+	pdftitle={\titleEN{}},
+	pdfsubject={NTUT Thesis} % ntut
+}
+\usepackage{setspace}
+\usepackage[absolute]{textpos}
+\lstdefinestyle{nonumbers}{numbers=none}
+\textblockorigin{0mm}{0mm}
+\setcounter{tocdepth}{2}
+\pagestyle{plain}
+
+% ntut
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{CJKnumb}
+%\titleformat{\chapter}{\centering\Huge\bfseries}{第\,\CJKnumber{\thechapter}\,章}{1em} {}
+%\titleformat{\chapter}{\centering\huge\bfseries}{第\,\CJKnumber{\thechapter}\,章}{1em} {}
+\titleformat{\chapter}{\centering\LARGE\bfseries}{第\,\CJKnumber{\thechapter}\,章}{1em} {}
+%\titleformat{\chapter}{\centering\large\bfseries}{第\,\CJKnumber{\thechapter}\,章}{1em} {}
+
+
+
+
+\begin{document}
+
+%----------- hyphenation  -----------
+%\righthyphenmin=10  % Best hyphenation parameter
+
+%----------- watermark -----------
+%\CenterWallPaper{0.174}{fig/logo.png}
+\CenterWallPaper{0.25}{fig/logo_bg.png}
+%\setlength{\wpXoffset}{6.1725cm}  % 控制出現在頁面的位置
+%\setlength{\wpYoffset}{10.5225cm} % 控制出現在頁面的位置
+
+%----------- side page, used for printing on spline -----------
+\makeside
+
+%----------- cover page -----------
+\maketitle
+
+\frontmatter
+%----------- generate the certification page by LaTeX -----------
+%\makecertification
+%----------- includepdf by using package pdfpages -----------
+\addcontentsline{toc}{chapter}{口試委員會審定書}
+\includepdf{pdf/bb(18).pdf} % 轉檔案成 pdf
+\includepdf{pdf/bb(19).pdf} % 轉檔案成 pdf
+
+%\singlespacing
+%\onehalfspacing
+\doublespacing
+\input{01abstractCH}
+\input{02abstractEN}
+\input{03acknowledgementsCH}
+
+\singlespacing
+\tableofcontents
+
+\onehalfspacing
+\listoffigures
+\listoftables
+
+\mainmatter
+
+\doublespacing
+
+%----------- Include/Input your thesis here -----------
+%normal cite == \input
+
+\input{10chap01introduction}
+\input{20chap02relatedwork}
+\input{30chap03methodology}
+\input{40chap04results}
+\input{50chap05conclusions}
+
+
+
+%chapter cite  == \include
+
+%\include{start}
+%\include{introduction}
+%\include{THM}
+%\include{EXP}
+
+
+%\appendix
+%----------- Input your appendix here  -----------
+\input{AppendixA}
+\input{AppendixB}
+%or %chapter cite  == \include
+%\include{AppendixA}
+%\include{AppendixB}
+
+\input{Symbols}
+
+\backmatter
+
+
+%---------- Input your reference here ---------
+\bibliographystyle{unsrt}
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{thesis}
+
+%----------- Input your Figure chapter here  -----------
+%\input{EndFigTab}
+%chapter cite  == \include
+%\include{EndFigTab}
+
+\end{document}
